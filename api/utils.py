@@ -7,6 +7,16 @@ load_dotenv()
 
 
 def connection_db():
+    if os.getenv("TESTING") == "True":
+        cnx = mysql.connector.connect(
+            user=os.getenv("USER_TEST"),
+            password=os.getenv("PASSWORD_TEST"),
+            host=os.getenv("HOST_TEST"),
+            database=os.getenv("DATABASE_TEST"),
+        )
+        # yield cnx
+        # cnx.close()
+        return cnx
     cnx = mysql.connector.connect(
         user=os.getenv("USER"),
         password=os.getenv("PASSWORD"),
