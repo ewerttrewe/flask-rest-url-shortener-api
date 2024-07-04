@@ -67,7 +67,7 @@ class UrlShortenerAPI(Resource):
         cursor.close()
         cnx.close()
 
-        # in case JSON needed
+
         # return {"original_url": data[0]}
         return redirect(data[0])
 
